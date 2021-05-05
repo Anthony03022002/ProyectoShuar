@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="vehiculo.component.css">
+</head>
+<body>
+    <div class="page-wrapper bg-gra-02 p-t-130 p-b-100 font-poppins">
+        <div class="wrapper wrapper--w680">
+            <div class="card card-4">
+                <div class="card-body">
+                    <h3 class="mb-5 text-center heading">Completar información</h3>
+                    <form (ngSubmit)="guardarVehiculo()">
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Número de placa</label> 
+                            <input type="text" name="num_placa" placeholder="Ingrese el número de placa" class="form-control" [(ngModel)]="vehiculo.num_placa"> 
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Modelo</label> 
+                            <input type="text" name="modelo" placeholder="Ingrese el modelo del vehículo" class="form-control"  [(ngModel)]="vehiculo.modelo"> 
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Marca</label> 
+                            <input type="text" name="marca" placeholder="Ingrese la marca del vehículo" class="form-control"  [(ngModel)]="vehiculo.marca"> 
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Color</label> 
+                            <input type="text" name="color" placeholder="Ingrese el color del vehículo" class="form-control"  [(ngModel)]="vehiculo.color"> 
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">N° de matrícula</label> 
+                            <input type="text" name="num_matricula" placeholder="Ingrese el número de matrícula" class="form-control"  [(ngModel)]="vehiculo.num_matricula"> 
+                        </div>
+                        <div class="form-group"> 
+                            <label class="form-control-label text-muted">Foto</label> 
+                            <input type="file" name="foto_vehiculo" (change)="capturarFile($event)" placeholder="Ingrese foto" class="form-control"  [(ngModel)]="vehiculo.foto_vehiculo"> 
+                        </div>
+                        <div *ngIf = "previsualizacion">
+                            <img [src] = "previsualizacion" alt = "">
+                          </div>
+                        <div class="form-group">
+                            <label for="identification">Tipo de vehículo</label>
+                            <select type="text" name="tipo_vehiculo_id" class="form-control" [(ngModel)]="vehiculo.tipo_vehiculo_id">
+                              <option *ngFor="let tipo of tipoVehiculo" value={{tipo.id}}>{{tipo.nombre_tipo}}</option>
+                            </select>
+                            
+                          </div >
+                        <div class="row justify-content-center my-3 px-3"> 
+                            <button class="btn-block btn-color">Guardar</button> 
+                        </div>
+                    </form>    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+

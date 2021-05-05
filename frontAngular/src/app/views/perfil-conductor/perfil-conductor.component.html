@@ -1,0 +1,70 @@
+<app-navbar></app-navbar>
+<br><br><br>
+<section id="work" class="portfolio-mf sect-pt4 route m-t-40 container">
+	<div class="mb-4 text-center">
+		<h2 class="title-a">
+			Perfil Conductor
+		</h2>
+		<div class="line-mf"></div>
+	</div>
+    
+<div *ngFor="let user of users">
+    <div *ngFor="let conductor of conductores">
+    <div *ngFor="let vehiculo of vehiculos">
+        <div *ngIf="user.id===conductor.user_id && conductorData==conductor.id && userData==user.id && vehiculo.conductor_id==conductor.id && vehiculo.conductor_id==conductorData">
+            <!-- Datos de usuario -->
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h2 class="text-info">{{user.name}}</h2>
+                            <h3 class="text-info">{{user.email}}</h3>
+                        </div>
+                    </div>
+                    <!-- Datos de conductor -->
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h3 class="text-info">Perfil</h3>
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="thumbnail" style="align-content: center">
+                               Cédula: {{conductor.cedula}}
+                            </div>
+                            <div class="text-primary">
+                                Tipo de licencia: {{conductor.tipo_licencia}}
+                            </div>
+                            <button class="btn btn-primary" routerLink="/conductor/edit/{{conductor.id}}">Editar Perfil</button>
+                        </div>
+                    </div>
+                    <!-- Datos vehiculo -->
+                    <div class="card">
+                        <div class="card-header text-center">
+                            <h3 class="text-info">Vehículo</h3>
+                        </div>
+                        <div class="card-body text-center">
+                            <div class="thumbnail" style="align-content: center">
+                              
+                                <img src='http://127.0.0.1:8000/storage/{{vehiculo.foto_vehiculo}}' alt="">
+                            </div>
+                            <div class="text-primary">
+                               Número de placa: {{vehiculo.num_placa}}
+                            </div>
+                            <div class="text-primary">
+                                Número de matrícula: {{vehiculo.num_matricula}}
+                            </div>
+                            <div class="text-primary">
+                                Modelo: {{vehiculo.modelo}}
+                            </div>
+                            <div class="text-primary">
+                               Marca: {{vehiculo.marca}}
+                            </div>
+                            <div class="text-primary">
+                               Color: {{vehiculo.color}}
+                            </div>
+                            <button class="btn btn-primary" routerLink="edit/{{vehiculo.id}}">Editar vehiculo</button>
+                        </div>
+                    </div>
+                </div>
+    </div>
+    </div>
+</div>
+</section>
+
